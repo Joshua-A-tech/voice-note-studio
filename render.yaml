@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: voice-note-studio
+    runtime: python
+    repo: https://github.com/Joshua-A-tech/voice-note-studio
+    plan: free
+    branch: main
+    buildCommand: pip install fastapi uvicorn
+    startCommand: uvicorn main_working:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0

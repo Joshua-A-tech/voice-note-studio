@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Note Studio | AI-Powered Transcription</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-microphone-alt"></i>
+                <span>Voice Note Studio</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#" class="nav-link active" data-page="home">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#" class="nav-link" data-page="studio">
+                    <i class="fas fa-microphone"></i> Studio
+                </a>
+                <a href="#" class="nav-link" data-page="about">
+                    <i class="fas fa-info-circle"></i> About
+                </a>
+                <a href="#" class="nav-link" data-page="features">
+                    <i class="fas fa-star"></i> Features
+                </a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Home Page -->
+        <div id="homePage" class="page active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-robot"></i>
+                        <span>AI-Powered Voice Recognition</span>
+                    </div>
+                    <h1 class="hero-title">Transform Your Voice <br>Into <span class="gradient-text">Intelligent Notes</span></h1>
+                    <p class="hero-subtitle">Experience the future of note-taking with real-time transcription, AI enhancement, and smart analytics. Perfect for meetings, lectures, and creative brainstorming.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary-large" onclick="navigateToStudio()">
+                            <i class="fas fa-microphone"></i> Start Recording
+                        </button>
+                        <button class="btn-secondary-large" onclick="scrollToFeatures()">
+                            <i class="fas fa-play"></i> Watch Demo
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Accuracy Rate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Languages Supported</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10k+</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-grid" id="featuresSection">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-Time Transcription</h3>
+                    <p>Instant speech-to-text conversion with high accuracy and low latency.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Enhancement</h3>
+                    <p>Smart text cleaning, grammar correction, and content summarization.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Sentiment Analysis</h3>
+                    <p>Understand the emotional tone of your conversations and notes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-export"></i>
+                    </div>
+                    <h3>Multi-Format Export</h3>
+                    <p>Export to TXT, DOCX, PDF, or Markdown with one click.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Studio Page (Voice Note App) -->
+        <div id="studioPage" class="page">
+            <div class="studio-container">
+                <div class="studio-header">
+                    <h2><i class="fas fa-microphone-alt"></i> Voice Studio</h2>
+                    <p>Record, transcribe, and enhance your voice notes with AI</p>
+                </div>
+                
+                <div class="main-grid">
+                    <!-- Left Panel -->
+                    <div class="left-panel">
+                        <!-- Recording Card -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">
+                                    <i class="fas fa-circle-dot" style="color: #ef4444;"></i> Live Capture
+                                </h2>
+                                <div class="status-chip" id="statusChip">
+                                    <i class="fas fa-check-circle"></i> Ready
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="recording-controls">
+                                    <button id="recordBtn" class="record-button">
+                                        <i class="fas fa-microphone"></i>
+                                    </button>
+                                </div>
+                                <div class="wave-animation" id="waveAnimation" style="display: none;">
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                </div>
+                                <div class="timer" id="timerDisplay">00:00:00</div>
+                                <div class="info-text">
+                                    <i class="fas fa-info-circle"></i> Click the microphone and start speaking
+                                </div>
+                                <div class="stats-panel">
+                                    <div class="stat-item">
+                                        <span class="stat-label"><i class="fas fa-file-alt"></i> Note length:</span>
+                                        <span class="stat-value" id="charCount">0 chars</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label"><i class="fas fa-microphone"></i> Confidence:</span>
+                                        <span class="stat-value" id="confidenceLevel">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Tools Card -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">
+                                    <i class="fas fa-magic" style="color: #8b5cf6;"></i> AI Enhancement Tools
+                                </h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="tools-grid">
+                                    <button id="scanBtn" class="btn-primary">
+                                        <i class="fas fa-robot"></i> Scan & Clean
+                                    </button>
+                                    <button id="summarizeBtn" class="btn-success">
+                                        <i class="fas fa-compress"></i> Summarize
+                                    </button>
+                                    <button id="sentimentBtn" class="btn-pink">
+                                        <i class="fas fa-chart-line"></i> Sentiment
+                                    </button>
+                                    <button id="extractActionsBtn" class="btn-orange">
+                                        <i class="fas fa-tasks"></i> Actions
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Export Card -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">
+                                    <i class="fas fa-download" style="color: #3b82f6;"></i> Export Document
+                                </h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="export-grid">
+                                    <button id="exportTxtBtn" class="btn-export">
+                                        <i class="fas fa-file-alt"></i> TXT
+                                    </button>
+                                    <button id="exportDocxBtn" class="btn-export">
+                                        <i class="fas fa-file-word"></i> DOCX
+                                    </button>
+                                    <button id="exportPdfBtn" class="btn-export">
+                                        <i class="fas fa-file-pdf"></i> PDF
+                                    </button>
+                                </div>
+                                <button id="exportMdBtn" class="btn-export-full">
+                                    <i class="fab fa-markdown"></i> Export as Markdown
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel -->
+                    <div class="right-panel">
+                        <div class="card">
+                            <div class="transcript-header">
+                                <div class="transcript-title">
+                                    <i class="fas fa-scroll"></i>
+                                    <span>Transcript</span>
+                                    <span class="badge-small">Editable</span>
+                                </div>
+                                <div class="transcript-actions">
+                                    <button id="clearTextBtn" class="icon-button">
+                                        <i class="far fa-trash-alt"></i> Clear
+                                    </button>
+                                    <button id="copyTextBtn" class="icon-button">
+                                        <i class="far fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <textarea id="transcriptArea" class="transcript-area" placeholder="🎤 Click the microphone button and start speaking. Your speech will be transcribed in real-time with AI enhancement..."></textarea>
+                        </div>
+
+                        <div class="card">
+                            <div class="tabs">
+                                <button class="tab-btn active" data-tab="stats">
+                                    <i class="fas fa-chart-bar"></i> Statistics
+                                </button>
+                                <button class="tab-btn" data-tab="sentiment">
+                                    <i class="fas fa-smile"></i> Sentiment
+                                </button>
+                                <button class="tab-btn" data-tab="actions">
+                                    <i class="fas fa-check-circle"></i> Action Items
+                                </button>
+                                <button class="tab-btn" data-tab="keywords">
+                                    <i class="fas fa-tags"></i> Keywords
+                                </button>
+                            </div>
+                            
+                            <div class="tab-content" id="statsTab">
+                                <div class="stats-grid">
+                                    <div class="stat-card">
+                                        <div class="stat-number" id="wordCount">0</div>
+                                        <div class="stat-label">Total Words</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-number" id="sentenceCount">0</div>
+                                        <div class="stat-label">Sentences</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-number" id="readingTime">0</div>
+                                        <div class="stat-label">Reading Time (min)</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-number" id="uniqueWords">0</div>
+                                        <div class="stat-label">Unique Words</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-content" id="sentimentTab" style="display: none;">
+                                <div class="sentiment-container">
+                                    <canvas id="sentimentChart" width="300" height="200"></canvas>
+                                    <div id="sentimentLabel" class="sentiment-label"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-content" id="actionsTab" style="display: none;">
+                                <div id="actionsList" class="actions-list">
+                                    <p class="placeholder-text">Click "Extract Actions" to find tasks and to-dos</p>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-content" id="keywordsTab" style="display: none;">
+                                <div id="keywordsCloud" class="keywords-cloud">
+                                    <p class="placeholder-text">Run AI Scan to extract keywords</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="aboutPage" class="page">
+            <div class="about-container">
+                <div class="about-header">
+                    <h2><i class="fas fa-info-circle"></i> About Voice Note Studio</h2>
+                    <p>Revolutionizing the way you capture and process voice notes</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-section">
+                        <h3><i class="fas fa-rocket"></i> Our Mission</h3>
+                        <p>Voice Note Studio was born from a simple idea: everyone should be able to capture their thoughts instantly and transform them into actionable, polished content. We combine cutting-edge AI with an intuitive interface to make voice note-taking effortless.</p>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h3><i class="fas fa-cogs"></i> Technology Stack</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <i class="fab fa-python"></i>
+                                <span>Python FastAPI</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-microphone"></i>
+                                <span>Web Speech API</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-brain"></i>
+                                <span>AI/NLP Models</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-js"></i>
+                                <span>Vanilla JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h3><i class="fas fa-users"></i> Who We Serve</h3>
+                        <div class="audience-grid">
+                            <div class="audience-card">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <h4>Students</h4>
+                                <p>Capture lectures and create study notes</p>
+                            </div>
+                            <div class="audience-card">
+                                <i class="fas fa-briefcase"></i>
+                                <h4>Professionals</h4>
+                                <p>Document meetings and brainstorming sessions</p>
+                            </div>
+                            <div class="audience-card">
+                                <i class="fas fa-pen-fancy"></i>
+                                <h4>Writers</h4>
+                                <p>Dictate and refine creative content</p>
+                            </div>
+                            <div class="audience-card">
+                                <i class="fas fa-clinic-medical"></i>
+                                <h4>Researchers</h4>
+                                <p>Transcribe interviews and field notes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Page -->
+        <div id="featuresPage" class="page">
+            <div class="features-container">
+                <div class="features-header">
+                    <h2><i class="fas fa-star"></i> Powerful Features</h2>
+                    <p>Everything you need for professional voice note management</p>
+                </div>
+                
+                <div class="all-features-grid">
+                    <div class="feature-detail-card">
+                        <div class="feature-icon-large">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Real-Time Transcription</h3>
+                        <p>Instant speech-to-text with support for multiple languages and dialects. Watch your words appear as you speak.</p>
+                    </div>
+                    
+                    <div class="feature-detail-card">
+                        <div class="feature-icon-large">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>AI Text Enhancement</h3>
+                        <p>Automatic removal of filler words, grammar correction, and punctuation fixing for polished notes.</p>
+                    </div>
+                    
+                    <div class="feature-detail-card">
+                        <div class="feature-icon-large">
+                            <i class="fas fa-compress-alt"></i>
+                        </div>
+                        <h3>Smart Summarization</h3>
+                        <p>Generate concise summaries of your transcripts, perfect for quick reviews and sharing.</p>
+                    </div>
+                    
+                    <div class="feature-detail-card">
+                        <div class="feature-icon-large">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Sentiment Analysis</h3>
+                        <p>Understand the emotional tone of your conversations with visual sentiment charts and analysis.</p>
+                    </div>
+                    
+                    <div class="feature-detail-card">
+                        <div class="feature-icon-large">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>Action Item Extraction</h3>
+                        <p>Automatically identify tasks, todos, and next steps from your notes.</p>
+                    </div>
+                    
+                    <div class="feature-detail-card">
+                        <div class="feature-icon-large">
+                            <i class="fas fa-file-export"></i>
+                        </div>
+                        <h3>Multiple Export Formats</h3>
+                        <p>Export your notes as TXT, DOCX, PDF, or Markdown for maximum compatibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4><i class="fas fa-microphone-alt"></i> Voice Note Studio</h4>
+                    <p>AI-powered voice transcription and note-taking platform.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="studio">Studio</a></li>
+                        <li><a href="#" data-page="about">About</a></li>
+                        <li><a href="#" data-page="features">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@voicenotestudio.com</li>
+                        <li><i class="fas fa-clock"></i> 24/7 Support</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Global Team</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Voice Note Studio. All rights reserved. | Made with <i class="fas fa-heart"></i> for better productivity</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html-docx-js/dist/html-docx.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/recording-storage.js"></script>
+    <script src="js/enhanced-features.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
+</html>

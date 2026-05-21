@@ -1,0 +1,33 @@
+/* Add these styles for better confidence display */
+.stat-value#confidenceLevel {
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    display: inline-block;
+    min-width: 80px;
+    text-align: right;
+}
+
+/* Confidence level colors - will be set by JavaScript */
+.stat-value#confidenceLevel.high-confidence {
+    color: #10b981;
+}
+
+.stat-value#confidenceLevel.medium-confidence {
+    color: #f59e0b;
+}
+
+.stat-value#confidenceLevel.low-confidence {
+    color: #ef4444;
+}
+
+/* Animation for confidence updates */
+@keyframes confidencePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.stat-value#confidenceLevel {
+    animation: confidencePulse 0.3s ease;
+}

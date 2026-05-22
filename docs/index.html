@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Note Studio - Professional Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="docs-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-microphone-alt"></i>
+                <span>Voice Note Studio</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active"><i class="fas fa-home"></i> Home</a>
+                <a href="#guide"><i class="fas fa-book"></i> Guide</a>
+                <a href="#api"><i class="fas fa-code"></i> API</a>
+                <a href="#examples"><i class="fas fa-rocket"></i> Examples</a>
+                <a href="https://github.com/Joshua-A-tech/voice-note-studio" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Voice Note Studio <span class="badge">v4.0.0</span></h1>
+            <p>Professional documentation for the AI-powered voice transcription platform</p>
+            <div class="hero-buttons">
+                <a href="#getting-started" class="btn-primary"><i class="fas fa-download"></i> Get Started</a>
+                <a href="https://github.com/Joshua-A-tech/voice-note-studio" class="btn-secondary" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#demo" class="btn-secondary"><i class="fas fa-play"></i> Live Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="docs-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-search">
+                <input type="text" placeholder="Search documentation..." id="searchInput">
+                <i class="fas fa-search"></i>
+            </div>
+            
+            <div class="sidebar-nav">
+                <div class="nav-group">
+                    <h3><i class="fas fa-rocket"></i> Getting Started</h3>
+                    <ul>
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#quick-start">Quick Start</a></li>
+                        <li><a href="#system-requirements">System Requirements</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h3><i class="fas fa-users"></i> User Guide</h3>
+                    <ul>
+                        <li><a href="#recording">Recording Audio</a></li>
+                        <li><a href="#transcription">Transcription</a></li>
+                        <li><a href="#ai-features">AI Features</a></li>
+                        <li><a href="#export">Export Options</a></li>
+                        <li><a href="#storage">Recording Library</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h3><i class="fas fa-code"></i> API Reference</h3>
+                    <ul>
+                        <li><a href="#api-overview">Overview</a></li>
+                        <li><a href="#api-endpoints">Endpoints</a></li>
+                        <li><a href="#websocket">WebSocket</a></li>
+                        <li><a href="#examples">Code Examples</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h3><i class="fas fa-cogs"></i> Development</h3>
+                    <ul>
+                        <li><a href="#setup">Setup</a></li>
+                        <li><a href="#architecture">Architecture</a></li>
+                        <li><a href="#contributing">Contributing</a></li>
+                        <li><a href="#testing">Testing</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h3><i class="fas fa-question-circle"></i> Resources</h3>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#changelog">Changelog</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Documentation Content -->
+        <main class="docs-content">
+            <div id="introduction" class="doc-section">
+                <h1>Introduction</h1>
+                <p>Voice Note Studio is a powerful, AI-powered voice transcription application that converts speech to text in real-time, enhances it with intelligent processing, and provides various export options. Whether you're a student, professional, or creative, Voice Note Studio helps you capture and refine your thoughts effortlessly.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Real-Time</h3>
+                        <p>Instant speech-to-text conversion</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>AI-Powered</h3>
+                        <p>Smart text enhancement</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Analytics</h3>
+                        <p>Sentiment & keyword analysis</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-file-export"></i>
+                        <h3>Multi-Format</h3>
+                        <p>Export to various formats</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="installation" class="doc-section">
+                <h2>Installation</h2>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span><i class="fab fa-python"></i> Installation Commands</span>
+                        <button class="copy-btn" onclick="copyCode(this)"><i class="far fa-copy"></i> Copy</button>
+                    </div>
+                    <pre><code># Clone the repository
+git clone https://github.com/Joshua-A-tech/voice-note-studio.git
+cd voice-note-studio
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the application
+python main_enhanced.py
+
+# Open in browser
+http://localhost:8000</code></pre>
+                </div>
+            </div>
+
+            <div id="api-overview" class="doc-section">
+                <h2>API Overview</h2>
+                <p>The Voice Note Studio API provides programmatic access to all features including transcription, recording storage, and AI enhancement.</p>
+                
+                <div class="api-endpoint">
+                    <div class="endpoint-header">
+                        <span class="method get">GET</span>
+                        <code>/api/health</code>
+                    </div>
+                    <p>Check server health status</p>
+                </div>
+
+                <div class="api-endpoint">
+                    <div class="endpoint-header">
+                        <span class="method post">POST</span>
+                        <code>/api/save-recording</code>
+                    </div>
+                    <p>Save a recording to the database</p>
+                </div>
+
+                <div class="api-endpoint">
+                    <div class="endpoint-header">
+                        <span class="method get">GET</span>
+                        <code>/api/recordings</code>
+                    </div>
+                    <p>Retrieve all saved recordings</p>
+                </div>
+            </div>
+
+            <div id="faq" class="doc-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h4>How do I improve transcription accuracy?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Speak clearly, reduce background noise, use a good quality microphone, and ensure you're in a quiet environment. Also, try to speak at a natural pace.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h4>Is my data stored securely?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All data is stored locally on your machine. No data is sent to external servers except for CDN resources required for the interface.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <h4>Can I use this offline?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Currently, an internet connection is required for CDN resources. Offline mode is planned for future releases.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="docs-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4><i class="fas fa-microphone-alt"></i> Voice Note Studio</h4>
+                    <p>AI-powered voice transcription platform for professionals, students, and creators.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Joshua-A-tech/voice-note-studio" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <ul>
+                        <li><a href="#getting-started">Getting Started</a></li>
+                        <li><a href="#user-guide">User Guide</a></li>
+                        <li><a href="#api-reference">API Reference</a></li>
+                        <li><a href="#examples">Examples</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/Joshua-A-tech/voice-note-studio" target="_blank">GitHub Repository</a></li>
+                        <li><a href="#issues">Report Issues</a></li>
+                        <li><a href="#discussions">Discussions</a></li>
+                        <li><a href="#changelog">Changelog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> muorongolejoshua@gmail.com</li>
+                        <li><i class="fab fa-github"></i> Joshua-A-tech</li>
+                        <li><i class="fas fa-clock"></i> 24/7 Support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#license">License (MIT)</a>
+                </div>
+                <p>&copy; 2024 Voice Note Studio. Created by <a href="https://github.com/Joshua-A-tech">Joshua A-tech</a>. All rights reserved.</p>
+                <div class="footer-badges">
+                    <img src="https://img.shields.io/badge/version-4.0.0-blue" alt="Version">
+                    <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+                    <img src="https://img.shields.io/badge/python-3.8+-blue" alt="Python">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/docs.js"></script>
+</body>
+</html>
